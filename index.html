@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Trois setups PC au meilleur prix (budget éco, moyen, élevé) et les meilleures affaires du jour, comparés chaque jour sur Amazon, Cdiscount, AliExpress, Idealo et Dealabs.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Setups du Jour</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout : colonne unique type arbre de liens — budget → setup → composant → offres par site */
+:root{
+  --bg:#EDF0F5; --surface:#FFFFFF; --ink:#141A27; --muted:#5B6577; --line:#D5DBE5;
+  --accent:#2F55E8; --accent-ink:#FFFFFF; --ok:#1E8A55; --warn:#A8650A; --warn-bg:#FBF0DC;
+  --t1:#1E8A55; --t2:#2F55E8; --t3:#8A3FD1;
+  --f-display:"Sora",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1220; --surface:#161D2F; --ink:#E7EBF3; --muted:#98A2B6; --line:#28324A;
+  --accent:#6E8CFF; --accent-ink:#0D1220; --ok:#4CC88A; --warn:#F0B35A; --warn-bg:#33270F;
+  --t1:#4CC88A; --t2:#6E8CFF; --t3:#B98AF0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1220; --surface:#161D2F; --ink:#E7EBF3; --muted:#98A2B6; --line:#28324A;
+  --accent:#6E8CFF; --accent-ink:#0D1220; --ok:#4CC88A; --warn:#F0B35A; --warn-bg:#33270F;
+  --t1:#4CC88A; --t2:#6E8CFF; --t3:#B98AF0; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding-block:32px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+h1,h2{font-family:var(--f-display);text-wrap:balance;margin:0}
+h1{font-size:1.75rem;letter-spacing:-.01em}
+h2{font-size:1.35rem}
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.mark{width:56px;height:56px;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--f-mono);font-size:1.1rem}
+.sub{color:var(--muted);margin:0;max-width:42ch}
+.stamp{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.stack{display:flex;flex-direction:column;gap:12px}
+a{color:inherit}
+.setup{position:relative;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:16px 18px 16px 22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:border-color .15s,transform .15s;overflow:hidden}
+.setup::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tier)}
+.setup:hover,.setup:focus-visible{border-color:var(--tier);transform:translateY(-1px);outline:none}
+.tier{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tier);grid-column:1/-1}
+.setup .name{font-family:var(--f-display);font-weight:700;font-size:1.1rem}
+.setup .total{font-family:var(--f-mono);font-size:1.1rem;font-variant-numeric:tabular-nums}
+.setup .meta{grid-column:1/-1;color:var(--muted);font-size:.85rem}
+.chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.03em;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.88rem;color:var(--muted)}
+.note strong{color:var(--ink)}
+.back{align-self:flex-start;padding:4px 0;color:var(--accent);text-decoration:none}
+.back:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.part{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.part summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:14px 16px}
+.part summary::-webkit-details-marker{display:none}
+.part summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.part[open] summary{border-bottom:1px solid var(--line)}
+.cat{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.model{font-weight:600;min-width:0}
+.price{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;grid-row:1/3;grid-column:2;align-self:center}
+.where{grid-column:1/-1;font-size:.82rem;color:var(--muted)}
+.where b{color:var(--ok);font-weight:600}
+.lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:10px 16px 4px}
+.offers a,.search a{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;padding:10px 16px;text-decoration:none;font-size:.9rem}
+.offers a + a,.search a + a{border-top:1px solid var(--line)}
+.offers a:hover,.offers a:focus-visible,.search a:hover,.search a:focus-visible{background:var(--bg);outline:none}
+.site{font-weight:600;min-width:7.5em}
+.what{color:var(--muted);font-size:.82rem;min-width:0}
+.op{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.offers a.best .op,.offers a.best .site{color:var(--ok)}
+.search{border-top:1px solid var(--line)}
+.search a{grid-template-columns:1fr auto;color:var(--accent)}
+.warn{font-size:.8rem;color:var(--warn);background:var(--warn-bg);padding:8px 16px}
+.sum{display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px;border-radius:12px;background:var(--tier);color:var(--accent-ink)}
+.sum b{font-family:var(--f-mono);font-size:1.2rem;font-variant-numeric:tabular-nums}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-size:.85rem;padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.deal{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:14px 16px;text-decoration:none;border-bottom:1px solid var(--line)}
+.deal:hover,.deal:focus-visible{background:var(--bg);outline:none}
+.deal .price.ok{color:var(--ok)}
+.deal .price.mid{color:var(--muted)}
+h3{font-family:var(--f-display);font-size:1.05rem;margin:8px 0 0}
+.badge{font-family:var(--f-body);font-size:.68rem;font-weight:600;letter-spacing:.02em;text-transform:none;padding:1px 8px;border-radius:99px;margin-left:6px}
+.badge.ok{color:var(--ok);border:1px solid currentColor}
+.badge.mid{color:var(--warn);background:var(--warn-bg)}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{font-size:.8rem;padding:5px 11px;border-radius:99px;border:1px solid var(--line);background:var(--surface);text-decoration:none}
+.jump a:hover,.jump a:focus-visible{border-color:var(--accent);outline:none}
+.cmp{display:flex;justify-content:space-between;gap:12px;padding:8px 16px;font-size:.88rem}
+.cmp + .cmp{border-top:1px solid var(--line)}
+footer{font-size:.78rem;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+/* ===== DONNÉES DU JOUR : seule partie à modifier chaque matin =====
+   Pour chaque composant, "offres" = prix relevés sur les sites, la 1re est l'offre retenue pour le setup. */
+const AMZ = a => "https://www.amazon.fr/dp/"+a;
+const CDS = q => "https://www.cdiscount.com/search/10/"+encodeURIComponent(q).replace(/%20/g,"+")+".html";
+const ALI = q => "https://fr.aliexpress.com/w/wholesale-"+q.trim().replace(/\s+/g,"-")+".html";
+const DATA = {
+  date: "21/11/2026", heure: "17h",
+  setups: [
+    { id:"eco", tier:"Budget éco", couleur:"--t1", nom:"Le malin 1080p", usage:"Jouer en 1080p (réglages moyens à élevés) au plus bas prix", chips:["AM4","DDR4","1080p"],
+      astuce:"Le Ryzen 5 5600X est moins cher que le 5600 aujourd'hui chez Cdiscount, et l'Arc B570 coûte 175 € de moins qu'une RTX 5060. Garde 16 Go de DDR4 : la DDR5 coûterait le double.",
+      parts:[
+        {cat:"Processeur", modele:"AMD Ryzen 5 5600X (ventirad inclus)", q:"Ryzen 5 5600X", offres:[
+          ["Cdiscount",118.99,"Ryzen 5 5600X, livraison gratuite",CDS("Ryzen 5 5600X")],
+          ["Cdiscount",121.72,"Ryzen 5 5600 (modèle inférieur)",CDS("Ryzen 5 5600")],
+          ["AliExpress",123.39,"Ryzen 5 5600, sans ventirad",ALI("ryzen 5 5600")],
+          ["Amazon",143.51,"Ryzen 5 5600X tray",AMZ("B09SLYNMXB")]]},
+        {cat:"Carte mère", modele:"Gigabyte B550M K", q:"Gigabyte B550M K", offres:[
+          ["Cdiscount",70.99,"Vendu et livré par Cdiscount",CDS("Gigabyte B550M K")],
+          ["Amazon",91.51,"Gigabyte B550M DS3H R2",AMZ("B0F4H61PLX")]]},
+        {cat:"Mémoire", modele:"Netac 16 Go (2×8) DDR4 3200", q:"Netac DDR4 16Go 3200 2x8", offres:[
+          ["Amazon",127.49,"Netac 16 Go (2×8) 3200",AMZ("B0GK6MYT3K")],
+          ["Amazon",139.99,"G.Skill Aegis 16 Go (2×8) CL16",AMZ("B07YV61K16")],
+          ["Cdiscount",145.00,"G.Skill Ripjaws V 16 Go (2×8) CL16",CDS("G.Skill Ripjaws 16Go 2x8 DDR4 3200")]]},
+        {cat:"Carte graphique", modele:"ASRock Intel Arc B570 Challenger 10 Go", q:"Arc B570", offres:[
+          ["Amazon",350.68,"ASRock Arc B570 Challenger 10 Go",AMZ("B0DQYM2MHX")],
+          ["Amazon",432.90,"PowerColor RX 7600 Fighter 8 Go",AMZ("B0FFT1CTGF")],
+          ["Amazon",442.99,"Sparkle Arc B570 Guardian OC",AMZ("B0DR337DJG")],
+          ["Amazon",524.89,"MSI RTX 5060 Ventus 2X 8 Go",AMZ("B0972BP9YR")]]},
+        {cat:"SSD", modele:"PNY CS1030 1 To NVMe", q:"PNY CS1030 1To", offres:[
+          ["Amazon",129.99,"PNY CS1030 1 To NVMe Gen3",AMZ("B08M49JGKB")],
+          ["Amazon",136.99,"KingSpec 1 To NVMe Gen3",AMZ("B0CP9CXCXG")]]},
+        {cat:"Alimentation", modele:"Corsair CX650 (650 W)", q:"Corsair CX650", offres:[
+          ["Amazon",44.90,"Corsair CX650",AMZ("B0CK8NDN1Q")],
+          ["Cdiscount",56.69,"Gigabyte P650G 80+ Gold",CDS("Gigabyte P650G")],
+          ["Cdiscount",59.99,"MSI MAG A650BN",CDS("MSI MAG A650BN")]]},
+        {cat:"Boîtier", modele:"MSI MAG Forge 112R", q:"MSI MAG Forge 112R", offres:[
+          ["Amazon",55.95,"MSI MAG Forge 112R",AMZ("B09RGHK5CY")],
+          ["Cdiscount",64.99,"Zalman P30 Air (mATX)",CDS("Zalman P30 Air")]]}
+      ]},
+    { id:"moyen", tier:"Budget moyen", couleur:"--t2", nom:"L'équilibré 1440p", usage:"1080p ultra et 1440p élevé, plateforme AM5 qui évoluera", chips:["AM5","DDR5","1440p"],
+      astuce:"Le Ryzen 5 9600X à 149 € chez Amazon coûte à peine plus qu'un 7500F, pour un CPU plus récent. Côté GPU, la RX 9070 GRE ne coûte que 38 € de plus qu'une RX 9060 XT 16 Go, pour nettement plus de performances.",
+      parts:[
+        {cat:"Processeur", modele:"AMD Ryzen 5 9600X", q:"Ryzen 5 9600X", offres:[
+          ["Amazon",149.00,"Ryzen 5 9600X",AMZ("B0D6NN6TM7")],
+          ["AliExpress",116.56,"Ryzen 5 7500F (modèle inférieur, frais d'import possibles)",ALI("ryzen 5 7500f")],
+          ["Cdiscount",181.91,"Ryzen 5 9600X, livré par Cdiscount",CDS("Ryzen 5 9600X")]]},
+        {cat:"Ventirad", modele:"Thermalright Assassin X 120 SE", q:"Thermalright Assassin X 120 SE", offres:[
+          ["Amazon",21.90,"Thermalright Assassin X 120 SE",AMZ("B09NSBD1BG")]]},
+        {cat:"Carte mère", modele:"Gigabyte B650M D3HP AX (Wi-Fi)", q:"Gigabyte B650M D3HP", offres:[
+          ["Amazon",104.99,"Gigabyte B650M D3HP AX (Wi-Fi)",AMZ("B0CP17WD26")],
+          ["Cdiscount",106.83,"Gigabyte B650M S2H",CDS("Gigabyte B650M S2H")],
+          ["Cdiscount",114.93,"Gigabyte B650M D3HP (sans Wi-Fi)",CDS("Gigabyte B650M D3HP")]]},
+        {cat:"Mémoire", modele:"Corsair Vengeance RS 16 Go (2×8) DDR5 6000", q:"Corsair Vengeance RS 16Go DDR5 6000", offres:[
+          ["Amazon",299.99,"Corsair Vengeance RS 16 Go (2×8) 6000",AMZ("B0HC87VY2W")],
+          ["Cdiscount",359.99,"Corsair Vengeance RGB 16 Go (2×8) 6000",CDS("Corsair Vengeance RGB 16Go DDR5 6000")],
+          ["Cdiscount",379.99,"Kingston Fury Beast 16 Go (2×8) 6000",CDS("Kingston Fury Beast DDR5 16Go 6000")]]},
+        {cat:"Carte graphique", modele:"Gigabyte RX 9070 GRE Gaming OC 12 Go", q:"RX 9070 GRE", offres:[
+          ["Amazon",724.99,"Gigabyte RX 9070 GRE Gaming OC 12 Go",AMZ("B0H2W524DW")],
+          ["Amazon",729.99,"ASUS Prime RX 9070 GRE 12 Go",AMZ("B09BLBG46B")],
+          ["Amazon",736.00,"Sapphire Pulse RX 9070 GRE 12 Go",AMZ("B0H2NCCDQG")],
+          ["Cdiscount",739.99,"Sapphire Pulse RX 9060 XT 16 Go (modèle inférieur)",CDS("Sapphire Pulse RX 9060 XT 16GB")]]},
+        {cat:"SSD", modele:"Biwin Black Opal NV7400 1 To (PCIe 4.0)", q:"Biwin NV7400 1To", offres:[
+          ["Amazon",149.99,"Biwin Black Opal NV7400 1 To",AMZ("B0DM1R7KHZ")],
+          ["Amazon",164.99,"Crucial P310 1 To",AMZ("B0DC8VPSHV")]]},
+        {cat:"Alimentation", modele:"Cooler Master MWE Gold 650 V3", q:"Cooler Master MWE Gold 650 V3", offres:[
+          ["Cdiscount",64.99,"Cooler Master MWE Gold 650 V3, livré par Cdiscount",CDS("Cooler Master MWE Gold 650 V3")],
+          ["Amazon",69.99,"MSI MAG A650GLS (modulaire)",AMZ("B0BX6MTYSC")]]},
+        {cat:"Boîtier", modele:"MSI MAG Forge 321R Airflow", q:"MSI MAG Forge 321R Airflow", offres:[
+          ["Amazon",69.99,"MSI MAG Forge 321R Airflow",AMZ("B0CXQ664BW")],
+          ["Cdiscount",64.99,"Zalman P30 Air (mATX)",CDS("Zalman P30 Air")]]}
+      ]},
+    { id:"eleve", tier:"Budget élevé", couleur:"--t3", nom:"Le costaud 1440p+", usage:"1440p très élevé et entrée en 4K, le meilleur CPU gaming au meilleur prix", chips:["AM5","DDR5","1440p / 4K"],
+      astuce:"Le 7800X3D est 3,50 € moins cher sur AliExpress, mais on le prend chez Amazon pour le SAV. La RX 9070 XT ne coûte que 33 € de plus que la RX 9070 classique.",
+      parts:[
+        {cat:"Processeur", modele:"AMD Ryzen 7 7800X3D", q:"Ryzen 7 7800X3D", offres:[
+          ["Amazon",283.99,"Ryzen 7 7800X3D, avec le SAV Amazon",AMZ("B0BTZB7F88")],
+          ["AliExpress",280.49,"7800X3D, livraison gratuite, sans frais d'import",ALI("ryzen 7 7800x3d")],
+          ["Amazon",359.00,"Ryzen 7 9800X3D (+15 % en jeu environ)",AMZ("B0DKFMSMYK")]]},
+        {cat:"Ventirad", modele:"Thermalright Peerless Assassin 120 SE ARGB", q:"Thermalright Peerless Assassin 120 SE", offres:[
+          ["Amazon",30.32,"Thermalright PA120 SE ARGB",AMZ("B0G3K5WF8B")],
+          ["Amazon",37.05,"Thermalright PA120 SE ARGB (autre vendeur)",AMZ("B0D9YF3D4Y")]]},
+        {cat:"Carte mère", modele:"Gigabyte B650 Eagle (ATX)", q:"Gigabyte B650 Eagle", offres:[
+          ["Amazon",109.99,"Gigabyte B650 Eagle",AMZ("B0DBM78F2D")],
+          ["Cdiscount",116.83,"Gigabyte B650M Gaming Plus WiFi",CDS("Gigabyte B650M Gaming Plus WIFI")]]},
+        {cat:"Mémoire", modele:"Corsair Vengeance RGB 32 Go (2×16) DDR5 6000 CL30", q:"Corsair Vengeance RGB 32Go DDR5 6000 CL30", offres:[
+          ["Cybertek",499.99,"Corsair Vengeance RGB 32 Go 6000 CL30 (via comparateur)","https://www.cybertek.fr/"],
+          ["Amazon",504.99,"Patriot Viper Venom 32 Go 6000 CL36",AMZ("B09XY6KX8P")],
+          ["Cdiscount",570.05,"Patriot Viper Venom 32 Go 6000",CDS("Patriot Viper Venom 32Go DDR5 6000")]]},
+        {cat:"Carte graphique", modele:"ASUS Prime RX 9070 XT OC 16 Go", q:"RX 9070 XT", offres:[
+          ["Amazon",932.41,"ASUS Prime RX 9070 XT OC 16 Go",AMZ("B0DSG52H7D")],
+          ["Amazon",990.00,"XFX Swift RX 9070 XT 16 Go",AMZ("B0DW4FRCQR")],
+          ["Cdiscount",1039.99,"Gigabyte RX 9070 XT Gaming OC",CDS("Gigabyte RX 9070 XT Gaming OC")]]},
+        {cat:"SSD", modele:"Crucial P310 2 To", q:"Crucial P310 2To", offres:[
+          ["1fodiscount",249.91,"Crucial P310 2 To (via comparateur)","https://www.1fodiscount.com/"],
+          ["Amazon",269.99,"Fikwot FX660 2 To",AMZ("B0CXXWB52R")]]},
+        {cat:"Alimentation", modele:"Corsair RM850e (modulaire, 80+ Gold)", q:"Corsair RM850e", offres:[
+          ["Amazon",82.99,"Corsair RM850e (2025)",AMZ("B0DMTN5WLB")],
+          ["Cdiscount",89.99,"Cooler Master MWE Gold 850 V3",CDS("Cooler Master MWE Gold 850 V3")]]},
+        {cat:"Boîtier", modele:"be quiet! Pure Base 501 Airflow", q:"be quiet Pure Base 501 Airflow", offres:[
+          ["Amazon",79.95,"be quiet! Pure Base 501 Airflow",AMZ("B0DGXR6TTD")]]}
+      ]}
+  ],
+  /* Meilleures affaires du jour, indépendantes des setups, par sous-section.
+     statut : "bon" = vrai bon plan vérifié, "moyen" = prix dans la moyenne habituelle, "nv" = historique non vérifiable.
+     comp = prix de comparaison [libellé, prix]. */
+  affaires: [
+    {titre:"Composants PC", items:[
+      {titre:"AMD Ryzen 5 9600X", prix:149.00, site:"Amazon", lien:AMZ("B0D6NN6TM7"), statut:"bon",
+       pourquoi:"Un CPU Zen 5 récent pour à peine plus cher qu'un ancien Ryzen 5 7500F.",
+       comp:[["Cdiscount",181.91],["Ryzen 5 7600X chez Amazon",173.00]]},
+      {titre:"ASUS Prime RX 9070 XT OC 16 Go", prix:932.41, site:"Amazon", lien:AMZ("B0DSG52H7D"), statut:"bon",
+       pourquoi:"Seulement 33 € de plus que la RX 9070 classique, pour la version XT nettement plus rapide.",
+       comp:[["RX 9070 Challenger chez Amazon",899.00],["RX 9070 XT chez Cdiscount",1039.99]]},
+      {titre:"AMD Ryzen 7 7800X3D", prix:280.49, site:"AliExpress", lien:ALI("ryzen 7 7800x3d"), statut:"bon",
+       pourquoi:"Livraison gratuite et sans frais d'import, 59 € sous son prix d'il y a 30 jours sur AliExpress.",
+       comp:[["Amazon",283.99],["1fodiscount",338.57]]},
+      {titre:"AMD Ryzen 5 5600X", prix:118.99, site:"Cdiscount", lien:CDS("Ryzen 5 5600X"), statut:"bon",
+       pourquoi:"Moins cher aujourd'hui que le Ryzen 5 5600, qui est pourtant le modèle inférieur.",
+       comp:[["Ryzen 5 5600 chez Cdiscount",121.72],["Amazon (tray)",143.51]]}
+    ]},
+    {titre:"Bureaux assis-debout", items:[
+      {titre:"SONGMICS bureau électrique 160 × 70 cm (plateau inclus)", prix:113.99, site:"Amazon", lien:AMZ("B0CV4V22XL"), statut:"bon",
+       pourquoi:"Égale son prix le plus bas sur Amazon, 13 % sous son prix moyen. Plus de 5 600 avis.",
+       comp:[["Prix moyen sur Amazon",130.82],["Prix le plus haut relevé",149.99]]},
+      {titre:"FlexiSpot E1 Pro, piètement 2 moteurs (sans plateau)", prix:139.99, site:"Amazon", lien:AMZ("B01N31553J"), statut:"bon",
+       pourquoi:"Plus bas prix jamais relevé pour ce piètement. Attention : le plateau (120 à 180 cm) est à acheter à part.",
+       comp:[["Prix moyen sur Amazon",219.12],["Précédent prix le plus bas",142.48]]}
+    ]},
+    {titre:"Souris", items:[
+      {titre:"Logitech G Pro X Superlight 2 (gaming, sans fil)", prix:89.99, site:"Amazon", lien:AMZ("B07W4DGPGF"), statut:"bon",
+       pourquoi:"12 % sous son prix moyen, à 5 € de son prix le plus bas jamais vu.",
+       comp:[["Prix moyen sur Amazon",102.67],["Prix le plus bas historique",84.99]]},
+      {titre:"Logitech MX Master 3S (bureautique, sans fil)", prix:75.99, site:"Amazon", lien:AMZ("B0FHHV6YR5"), statut:"bon",
+       pourquoi:"20 % sous son prix moyen, quasiment son prix le plus bas.",
+       comp:[["Prix moyen sur Amazon",94.83],["Prix le plus bas historique",75.15]]}
+    ]},
+    {titre:"Écrans", items:[
+      {titre:"Samsung Odyssey G5 G50F, 27\" QHD 180 Hz", prix:148.90, site:"Amazon", lien:AMZ("B0FX39Q2TN"), statut:"bon",
+       pourquoi:"Nouveau prix le plus bas, 15 % sous son prix moyen. Le bon écran pour une config 1440p.",
+       comp:[["Prix moyen sur Amazon",174.24],["Précédent prix le plus bas",163.05]]},
+      {titre:"LG UltraGear 34G600A, 34\" ultra-large 3440 × 1440, 160 Hz", prix:209.99, site:"Amazon", lien:AMZ("B0FG8LKDT7"), statut:"bon",
+       pourquoi:"Nouveau prix le plus bas, 19 % sous son prix moyen.",
+       comp:[["Prix moyen sur Amazon",259.01],["Précédent prix le plus bas",213.99]]},
+      {titre:"MSI PRO MP273U, 27\" 4K (bureautique)", prix:169.08, site:"Amazon", lien:AMZ("B0DJ9KZG6P"), statut:"moyen",
+       pourquoi:"Prix dans la moyenne : seulement 6 % sous Cdiscount. Un bon écran 4K pour travailler, mais pas une affaire exceptionnelle.",
+       comp:[["Cdiscount",179.45],["Prix conseillé",199.99]]}
+    ]},
+    {titre:"Claviers", items:[
+      {titre:"Keychron K10 Pro, mécanique AZERTY sans fil", prix:89.99, site:"Amazon", lien:AMZ("B0G1RZRWN3"), statut:"bon",
+       pourquoi:"Moitié prix par rapport à Cdiscount, vendu par Keychron France.",
+       comp:[["Cdiscount",175.75],["Ancien prix sur Amazon",129.99]]},
+      {titre:"Logitech G515 TKL Lightspeed, mécanique sans fil", prix:74.99, site:"Amazon", lien:AMZ("B0D3HKCTL9"), statut:"bon",
+       pourquoi:"17 % moins cher que chez Cdiscount, vendu par Amazon.",
+       comp:[["Cdiscount",89.99],["Prix conseillé",129.99]]},
+      {titre:"Logitech MX Keys S, classique sans fil", prix:79.99, site:"Amazon", lien:AMZ("B07W6JFM87"), statut:"moyen",
+       pourquoi:"Prix dans la moyenne : même prix chez Cdiscount, pas de baisse particulière aujourd'hui.",
+       comp:[["Cdiscount",79.99],["Prix conseillé",119.99]]}
+    ]},
+    {titre:"Chaises ergonomiques", items:[
+      {titre:"SIHOO B100 SE", prix:139.99, site:"Cdiscount", lien:"https://www.cdiscount.com/maison/fauteuil-pouf-poire/sihoo-b100-se-chaise-de-bureau-ergonomique-soutie/f-117200101-aacte65429.html", statut:"bon",
+       pourquoi:"26 % sous son prix le plus bas des 30 derniers jours. Même prix chez Amazon.",
+       comp:[["Prix le plus bas sur 30 jours",189.99],["Amazon",139.99]]},
+      {titre:"SIHOO M109", prix:89.99, site:"Cdiscount", lien:"https://www.cdiscount.com/maison/fauteuil-pouf-poire/sihoo-m109-fauteuil-de-bureau/f-117200101-aadik22368.html", statut:"moyen",
+       pourquoi:"Petite baisse de 10 % : prix proche de l'habituel, mais c'est l'une des chaises ergonomiques les moins chères.",
+       comp:[["Prix le plus bas sur 30 jours",99.99]]}
+    ]},
+    {titre:"Accessoires", items:[
+      {titre:"Belkin BoostCharge, station de charge 3-en-1 Qi2 (iPhone, montre, écouteurs)", prix:48.99, site:"Amazon", lien:AMZ("B0DPJ6YV98"), statut:"bon",
+       pourquoi:"Moitié prix par rapport à Cdiscount, vendue par Amazon.",
+       comp:[["Cdiscount",95.81],["Prix conseillé",129.99]]},
+      {titre:"Logitech G840 XL, tapis de souris 90 × 40 cm", prix:21.99, site:"Amazon", lien:AMZ("B07W6JPVPF"), statut:"nv",
+       pourquoi:"Prix bas pour ce grand tapis Logitech, mais je n'ai pas pu vérifier son historique.",
+       comp:[["Prix conseillé",39.99]]}
+    ]}
+  ]
+};
+/* ===== FIN DES DONNÉES ===== */
+
+const SEARCH = [
+  ["Amazon", q=>"https://www.amazon.fr/s?k="+encodeURIComponent(q)],
+  ["Cdiscount", CDS],
+  ["AliExpress", ALI],
+  ["PcComponentes", q=>"https://www.pccomponentes.fr/search/?query="+encodeURIComponent(q)],
+  ["Tous les prix (Idealo)", q=>"https://www.idealo.fr/prechcat.html?q="+encodeURIComponent(q)],
+  ["Bons plans (Dealabs)", q=>"https://www.dealabs.com/search?q="+encodeURIComponent(q)]
+];
+const eur = n => n.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
+const best = p => p.offres[0];
+const total = s => s.parts.reduce((a,p)=>a+best(p)[1],0);
+const esc = t => String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const app = document.getElementById("app");
+
+function home(){
+  app.innerHTML = `
+  <header class="head">
+    <div class="mark">PC</div>
+    <h1>Setups du Jour</h1>
+    <p class="sub">Trois configs PC au meilleur prix, comparées chaque jour sur Amazon, Cdiscount, AliExpress et les autres.</p>
+    <span class="stamp">PRIX RELEVÉS LE ${DATA.date} · ${DATA.heure}</span>
+  </header>
+  <nav class="stack" aria-label="Setups par budget">
+    ${DATA.setups.map(s=>`
+      <a class="setup" href="#${s.id}" style="--tier:var(${s.couleur})">
+        <span class="tier">${esc(s.tier)}</span>
+        <span class="name">${esc(s.nom)}</span>
+        <span class="total">${eur(total(s))}</span>
+        <span class="meta">${esc(s.usage)}</span>
+        <span class="chips">${s.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join("")}</span>
+      </a>`).join("")}
+    <a class="setup" href="#affaires" style="--tier:var(--warn)">
+      <span class="tier">Bons plans</span>
+      <span class="name">Meilleures affaires du jour</span>
+      <span class="total">${DATA.affaires.reduce((n,g)=>n+g.items.length,0)} offres</span>
+      <span class="meta">Composants, écrans, souris, claviers, chaises, bureaux et accessoires</span>
+    </a>
+  </nav>
+  <div class="note"><strong>Pourquoi les prix sont si hauts ?</strong> La pénurie de mémoire fait flamber la DDR5 et les cartes graphiques. On te montre quand même, composant par composant, le site le moins cher du jour.</div>
+  <footer>Prix susceptibles d'avoir changé depuis le relevé. Certains liens peuvent être affiliés.</footer>`;
+}
+
+function setup(s){
+  app.innerHTML = `
+  <a class="back" href="#">← Tous les budgets</a>
+  <header class="stack" style="gap:6px">
+    <span class="tier" style="--tier:var(${s.couleur});color:var(--tier);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase">${esc(s.tier)}</span>
+    <h2>${esc(s.nom)}</h2>
+    <p class="sub" style="max-width:none">${esc(s.usage)}</p>
+    <span class="stamp">PRIX RELEVÉS LE ${DATA.date} · ${DATA.heure}</span>
+  </header>
+  <div class="stack">
+    ${s.parts.map((p,i)=>{const b=best(p);return `
+      <details class="part" id="p-${s.id}-${i}">
+        <summary>
+          <span class="cat">${esc(p.cat)}</span>
+          <span class="price">${eur(b[1])}</span>
+          <span class="model">${esc(p.modele)}</span>
+          <span class="where">Moins cher chez <b>${esc(b[0])}</b> · ${p.offres.length} offre${p.offres.length>1?"s":""} comparée${p.offres.length>1?"s":""}</span>
+        </summary>
+        <div class="lbl">Prix relevés aujourd'hui</div>
+        <div class="offers">
+          ${p.offres.map((o,k)=>`<a href="${o[3]}" target="_blank" rel="noopener" class="${k===0?"best":""}"><span class="site">${esc(o[0])}</span><span class="what">${esc(o[2])}</span><span class="op">${eur(o[1])} ↗</span></a>`).join("")}
+        </div>
+        ${p.offres.some(o=>o[0]==="AliExpress")?`<div class="warn">AliExpress : vérifie au panier les frais d'import et le délai, et privilégie les vendeurs les mieux notés.</div>`:""}
+        <div class="search">
+          <div class="lbl">Chercher ce modèle ailleurs</div>
+          ${SEARCH.map(([n,f])=>`<a href="${f(p.q)}" target="_blank" rel="noopener"><span>${esc(n)}</span><span>↗</span></a>`).join("")}
+        </div>
+      </details>`}).join("")}
+  </div>
+  <div class="sum" style="--tier:var(${s.couleur})"><span>Total du setup</span><b>${eur(total(s))}</b></div>
+  <div class="note"><strong>Le conseil :</strong> ${esc(s.astuce)}</div>
+  <div class="row">
+    <button class="btn" id="openall">Tout déplier</button>
+    <button class="btn" id="copy">Copier le lien de ce setup</button>
+  </div>`;
+  document.getElementById("openall").onclick = e => {
+    const all = app.querySelectorAll("details"); const open = [...all].some(d=>!d.open);
+    all.forEach(d=>d.open=open); e.target.textContent = open?"Tout replier":"Tout déplier";
+  };
+  document.getElementById("copy").onclick = e => {
+    const url = location.href.split("#")[0]+"#"+s.id;
+    try{ navigator.clipboard.writeText(url).then(()=>e.target.textContent="Lien copié",()=>e.target.textContent=url); }
+    catch(_){ e.target.textContent = url; }
+  };
+}
+
+const STATUT={bon:["Bon plan","ok"],moyen:["Prix habituel","mid"],nv:["Historique non vérifié","mid"]};
+function deals(){
+  app.innerHTML = `
+  <a class="back" href="#">← Tous les budgets</a>
+  <header class="stack" style="gap:6px">
+    <span style="color:var(--warn);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase">Bons plans</span>
+    <h2>Meilleures affaires du jour</h2>
+    <p class="sub" style="max-width:none">Seules les vraies baisses sont marquées « Bon plan ». Les autres sont signalées comme prix habituel.</p>
+    <span class="stamp">PRIX RELEVÉS LE ${DATA.date} · ${DATA.heure}</span>
+  </header>
+  <nav class="jump" aria-label="Sous-sections">${DATA.affaires.map((g,i)=>`<a href="#affaires" data-to="g${i}">${esc(g.titre)}</a>`).join("")}</nav>
+  ${DATA.affaires.map((g,i)=>`
+  <section class="stack" id="g${i}">
+    <h3>${esc(g.titre)}</h3>
+    ${g.items.map(a=>{const st=STATUT[a.statut]||STATUT.nv;return `
+      <div class="part">
+        <a class="deal" href="${a.lien}" target="_blank" rel="noopener">
+          <span class="cat">${esc(a.site)} <span class="badge ${st[1]}">${st[0]}</span></span>
+          <span class="price ${st[1]}">${eur(a.prix)} ↗</span>
+          <span class="model">${esc(a.titre)}</span>
+          <span class="where">${esc(a.pourquoi)}</span>
+        </a>
+        <div class="lbl">Comparé à</div>
+        <div class="offers">${a.comp.map(c=>`<div class="cmp"><span class="what">${esc(c[0])}</span><span class="op">${eur(c[1])}</span></div>`).join("")}</div>
+      </div>`}).join("")}
+  </section>`).join("")}
+  <footer>Historiques Amazon vérifiés sur camelcamelcamel, prix de référence Cdiscount sur 30 jours. Une affaire peut disparaître dans la journée : vérifie le prix au panier.</footer>`;
+  app.querySelectorAll(".jump a").forEach(l=>l.onclick=e=>{e.preventDefault();document.getElementById(l.dataset.to).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+}
+
+function route(){
+  const s = DATA.setups.find(x=>"#"+x.id===location.hash);
+  location.hash==="#affaires" ? deals() : s ? setup(s) : home();
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange", route);
+route();
+</script>
+
+</body>
+</html>

@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Trois setups PC au meilleur prix (budget éco, moyen, élevé) et les meilleures affaires du jour, comparés chaque jour sur Amazon, Cdiscount, AliExpress, Idealo et Dealabs.">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<!doctype html><html lang="fr"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Setups du Jour</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,8 +85,7 @@ h3{font-family:var(--f-display);font-size:1.05rem;margin:8px 0 0}
 footer{font-size:.78rem;color:var(--muted);text-align:center}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-</head>
-<body>
+
 <div class="wrap" id="app"></div>
 
 <script>
@@ -101,174 +94,218 @@ footer{font-size:.78rem;color:var(--muted);text-align:center}
 const AMZ = a => "https://www.amazon.fr/dp/"+a;
 const CDS = q => "https://www.cdiscount.com/search/10/"+encodeURIComponent(q).replace(/%20/g,"+")+".html";
 const ALI = q => "https://fr.aliexpress.com/w/wholesale-"+q.trim().replace(/\s+/g,"-")+".html";
+const IDL = p => "https://www.idealo.fr/prix/"+p+".html";
 const DATA = {
-  date: "21/11/2026", heure: "17h",
+  date: "22/11/2026", heure: "14h",
   setups: [
     { id:"eco", tier:"Budget éco", couleur:"--t1", nom:"Le malin 1080p", usage:"Jouer en 1080p (réglages moyens à élevés) au plus bas prix", chips:["AM4","DDR4","1080p"],
-      astuce:"Le Ryzen 5 5600X est moins cher que le 5600 aujourd'hui chez Cdiscount, et l'Arc B570 coûte 175 € de moins qu'une RTX 5060. Garde 16 Go de DDR4 : la DDR5 coûterait le double.",
+      astuce:"L'Arc B570 baisse à 324 € (27 € de moins qu'hier). Le Ryzen 5 5600X reste moins cher que le 5600 chez Cdiscount. Une offre à 108,99 € existe pour le 5600X, mais chez un vendeur marketplace inconnu avec 12 jours de délai : on ne la retient pas.",
       parts:[
         {cat:"Processeur", modele:"AMD Ryzen 5 5600X (ventirad inclus)", q:"Ryzen 5 5600X", offres:[
           ["Cdiscount",118.99,"Ryzen 5 5600X, livraison gratuite",CDS("Ryzen 5 5600X")],
+          ["Cdiscount",108.99,"Vendeur marketplace inconnu (Fiable Gear), livraison d'ici le 04/12",IDL("200733045/amd-ryzen-5-5600x")],
           ["Cdiscount",121.72,"Ryzen 5 5600 (modèle inférieur)",CDS("Ryzen 5 5600")],
-          ["AliExpress",123.39,"Ryzen 5 5600, sans ventirad",ALI("ryzen 5 5600")],
-          ["Amazon",143.51,"Ryzen 5 5600X tray",AMZ("B09SLYNMXB")]]},
+          ["1fodiscount",123.34,"Ryzen 5 5600X tray, sans ventirad",IDL("200733045/amd-ryzen-5-5600x")]]},
         {cat:"Carte mère", modele:"Gigabyte B550M K", q:"Gigabyte B550M K", offres:[
-          ["Cdiscount",70.99,"Vendu et livré par Cdiscount",CDS("Gigabyte B550M K")],
-          ["Amazon",91.51,"Gigabyte B550M DS3H R2",AMZ("B0F4H61PLX")]]},
-        {cat:"Mémoire", modele:"Netac 16 Go (2×8) DDR4 3200", q:"Netac DDR4 16Go 3200 2x8", offres:[
-          ["Amazon",127.49,"Netac 16 Go (2×8) 3200",AMZ("B0GK6MYT3K")],
-          ["Amazon",139.99,"G.Skill Aegis 16 Go (2×8) CL16",AMZ("B07YV61K16")],
-          ["Cdiscount",145.00,"G.Skill Ripjaws V 16 Go (2×8) CL16",CDS("G.Skill Ripjaws 16Go 2x8 DDR4 3200")]]},
-        {cat:"Carte graphique", modele:"ASRock Intel Arc B570 Challenger 10 Go", q:"Arc B570", offres:[
-          ["Amazon",350.68,"ASRock Arc B570 Challenger 10 Go",AMZ("B0DQYM2MHX")],
-          ["Amazon",432.90,"PowerColor RX 7600 Fighter 8 Go",AMZ("B0FFT1CTGF")],
-          ["Amazon",442.99,"Sparkle Arc B570 Guardian OC",AMZ("B0DR337DJG")],
-          ["Amazon",524.89,"MSI RTX 5060 Ventus 2X 8 Go",AMZ("B0972BP9YR")]]},
+          ["Amazon",70.99,"Gigabyte B550M K, vendu par Amazon",IDL("202374302/gigabyte-b550m-k")],
+          ["Cdiscount",75.98,"70,99 € + 4,99 € de port",CDS("Gigabyte B550M K")],
+          ["Galaxus",75.47,"Gigabyte B550M K",IDL("202374302/gigabyte-b550m-k")]]},
+        {cat:"Mémoire", modele:"G.Skill Aegis 16 Go (2×8) DDR4 3200 CL16", q:"G.Skill Aegis 16Go DDR4 3200 F4-3200C16D-16GIS", offres:[
+          ["Amazon",139.99,"G.Skill Aegis 16 Go (2×8) CL16, SAV Amazon",AMZ("B07YV61K16")],
+          ["getgoods",139.86,"Même kit, port inclus",IDL("6850476/g-skill-aegis-kit-16-go-ddr4-3200-cl16-f4-3200c16d-16gis")],
+          ["PcComponentes",139.99,"Même kit",IDL("6850476/g-skill-aegis-kit-16-go-ddr4-3200-cl16-f4-3200c16d-16gis")]]},
+        {cat:"Carte graphique", modele:"ASRock Intel Arc B570 Challenger OC 10 Go", q:"ASRock Arc B570 Challenger", offres:[
+          ["Fnac",324.00,"Vendeur Fnac Marketplace, livraison incluse",IDL("205505501/asrock-arc-b570-challenger-oc")],
+          ["Pixmania",328.99,"324 € + 4,99 € de port",IDL("205505501/asrock-arc-b570-challenger-oc")],
+          ["Cdiscount",340.00,"Vendeur marketplace",CDS("ASRock Arc B570 Challenger")],
+          ["Amazon",343.91,"Vendeur tiers sur Amazon",IDL("205505501/asrock-arc-b570-challenger-oc")]]},
         {cat:"SSD", modele:"PNY CS1030 1 To NVMe", q:"PNY CS1030 1To", offres:[
           ["Amazon",129.99,"PNY CS1030 1 To NVMe Gen3",AMZ("B08M49JGKB")],
-          ["Amazon",136.99,"KingSpec 1 To NVMe Gen3",AMZ("B0CP9CXCXG")]]},
+          ["Cdiscount",131.98,"129,99 € + 1,99 € de port",CDS("PNY CS1030 1To")],
+          ["1fodiscount",143.22,"PNY CS1030 1 To",IDL("202145689/pny-cs1030-1-to")]]},
         {cat:"Alimentation", modele:"Corsair CX650 (650 W)", q:"Corsair CX650", offres:[
-          ["Amazon",44.90,"Corsair CX650",AMZ("B0CK8NDN1Q")],
-          ["Cdiscount",56.69,"Gigabyte P650G 80+ Gold",CDS("Gigabyte P650G")],
-          ["Cdiscount",59.99,"MSI MAG A650BN",CDS("MSI MAG A650BN")]]},
+          ["Amazon",44.90,"Corsair CX650, vendu par Amazon",AMZ("B0CK8NDN1Q")],
+          ["PcComponentes",58.00,"Corsair CX650",IDL("203557497/corsair-cx650-2023-650w")],
+          ["Amazon",62.75,"Vendeur tiers",IDL("203557497/corsair-cx650-2023-650w")]]},
         {cat:"Boîtier", modele:"MSI MAG Forge 112R", q:"MSI MAG Forge 112R", offres:[
           ["Amazon",55.95,"MSI MAG Forge 112R",AMZ("B09RGHK5CY")],
-          ["Cdiscount",64.99,"Zalman P30 Air (mATX)",CDS("Zalman P30 Air")]]}
+          ["Darty",55.99,"MSI MAG Forge 112R",IDL("202145799/msi-mag-forge-112r")],
+          ["Cdiscount",60.94,"55,95 € + 4,99 € de port",CDS("MSI MAG Forge 112R")]]}
       ]},
     { id:"moyen", tier:"Budget moyen", couleur:"--t2", nom:"L'équilibré 1440p", usage:"1080p ultra et 1440p élevé, plateforme AM5 qui évoluera", chips:["AM5","DDR5","1440p"],
-      astuce:"Le Ryzen 5 9600X à 149 € chez Amazon coûte à peine plus qu'un 7500F, pour un CPU plus récent. Côté GPU, la RX 9070 GRE ne coûte que 38 € de plus qu'une RX 9060 XT 16 Go, pour nettement plus de performances.",
+      astuce:"La RX 9070 GRE d'ASUS chez Amazon coûte 5 € de plus qu'une Gigabyte vendue par un tiers : on prend celle vendue par Amazon, pour le SAV. La DDR5 reste le poste qui fait mal : 302 € pour 16 Go.",
       parts:[
         {cat:"Processeur", modele:"AMD Ryzen 5 9600X", q:"Ryzen 5 9600X", offres:[
-          ["Amazon",149.00,"Ryzen 5 9600X",AMZ("B0D6NN6TM7")],
-          ["AliExpress",116.56,"Ryzen 5 7500F (modèle inférieur, frais d'import possibles)",ALI("ryzen 5 7500f")],
-          ["Cdiscount",181.91,"Ryzen 5 9600X, livré par Cdiscount",CDS("Ryzen 5 9600X")]]},
-        {cat:"Ventirad", modele:"Thermalright Assassin X 120 SE", q:"Thermalright Assassin X 120 SE", offres:[
-          ["Amazon",21.90,"Thermalright Assassin X 120 SE",AMZ("B09NSBD1BG")]]},
-        {cat:"Carte mère", modele:"Gigabyte B650M D3HP AX (Wi-Fi)", q:"Gigabyte B650M D3HP", offres:[
-          ["Amazon",104.99,"Gigabyte B650M D3HP AX (Wi-Fi)",AMZ("B0CP17WD26")],
-          ["Cdiscount",106.83,"Gigabyte B650M S2H",CDS("Gigabyte B650M S2H")],
-          ["Cdiscount",114.93,"Gigabyte B650M D3HP (sans Wi-Fi)",CDS("Gigabyte B650M D3HP")]]},
-        {cat:"Mémoire", modele:"Corsair Vengeance RS 16 Go (2×8) DDR5 6000", q:"Corsair Vengeance RS 16Go DDR5 6000", offres:[
-          ["Amazon",299.99,"Corsair Vengeance RS 16 Go (2×8) 6000",AMZ("B0HC87VY2W")],
-          ["Cdiscount",359.99,"Corsair Vengeance RGB 16 Go (2×8) 6000",CDS("Corsair Vengeance RGB 16Go DDR5 6000")],
-          ["Cdiscount",379.99,"Kingston Fury Beast 16 Go (2×8) 6000",CDS("Kingston Fury Beast DDR5 16Go 6000")]]},
-        {cat:"Carte graphique", modele:"Gigabyte RX 9070 GRE Gaming OC 12 Go", q:"RX 9070 GRE", offres:[
-          ["Amazon",724.99,"Gigabyte RX 9070 GRE Gaming OC 12 Go",AMZ("B0H2W524DW")],
-          ["Amazon",729.99,"ASUS Prime RX 9070 GRE 12 Go",AMZ("B09BLBG46B")],
-          ["Amazon",736.00,"Sapphire Pulse RX 9070 GRE 12 Go",AMZ("B0H2NCCDQG")],
-          ["Cdiscount",739.99,"Sapphire Pulse RX 9060 XT 16 Go (modèle inférieur)",CDS("Sapphire Pulse RX 9060 XT 16GB")]]},
+          ["AliExpress",140.11,"Ryzen 5 9600X, livraison incluse, d'ici le 28/11",ALI("ryzen 5 9600x")],
+          ["Amazon",149.00,"Ryzen 5 9600X, vendu par Amazon",AMZ("B0D6NN6TM7")],
+          ["PcComponentes",149.00,"Ryzen 5 9600X",IDL("204581805/amd-ryzen-5-9600x")],
+          ["Cdiscount",176.90,"171,91 € + 4,99 € de port",CDS("Ryzen 5 9600X")]]},
+        {cat:"Ventirad", modele:"Thermalright Assassin X 120 Refined SE", q:"Thermalright Assassin X 120 SE", offres:[
+          ["Amazon",20.59,"Vendeur tiers sur Amazon",IDL("202763151/thermalright-assassin-x-120-refined-se-black")],
+          ["Fnac",29.88,"Vendeur Fnac Marketplace",IDL("202763151/thermalright-assassin-x-120-refined-se-black")],
+          ["Cdiscount",32.35,"Vendeur marketplace, port inclus",CDS("Thermalright Assassin X 120 SE")]]},
+        {cat:"Carte mère", modele:"Gigabyte B650M D3HP AX (Wi-Fi)", q:"Gigabyte B650M D3HP AX", offres:[
+          ["Amazon",104.99,"Gigabyte B650M D3HP AX, vendu par Amazon",AMZ("B0CP17WD26")],
+          ["Galaxus",114.47,"Gigabyte B650M D3HP AX",IDL("203567192/gigabyte-b650m-d3hp-ax")],
+          ["PcComponentes",125.99,"Gigabyte B650M D3HP AX",IDL("203567192/gigabyte-b650m-d3hp-ax")]]},
+        {cat:"Mémoire", modele:"Patriot Viper Venom 16 Go (2×8) DDR5 6000 CL36", q:"Patriot Viper Venom 16Go DDR5 6000 PVV516G600C36K", offres:[
+          ["Kaufland",301.86,"Patriot Viper Venom 16 Go 6000 CL36, livraison d'ici le 03/12",IDL("209608599/patriot-viper-venom-16-go-kit-ddr5-6000-cl36-pvv516g600c36k")],
+          ["Cdiscount",320.14,"Même kit, vendeur marketplace",CDS("Patriot Viper Venom 16Go DDR5 6000")],
+          ["Alternate",323.90,"G.Skill Flare X5 16 Go 6000 CL30 (plus rapide), port inclus",IDL("209123129/g-skill-flare-x5-16-go-kit-ddr5-6000-cl30-f5-6000j3038f8gh2-fx5")]]},
+        {cat:"Carte graphique", modele:"ASUS Prime RX 9070 GRE OC 12 Go", q:"RX 9070 GRE", offres:[
+          ["Amazon",729.99,"ASUS Prime RX 9070 GRE OC 12 Go, vendu par Amazon",IDL("210684260/asus-radeon-rx-9070-gre-prime-oc")],
+          ["Amazon",724.99,"Gigabyte RX 9070 GRE Gaming OC, vendeur tiers",IDL("210697510/gigabyte-radeon-rx-9070-gre-gaming-oc")],
+          ["Compumsa",733.60,"Sapphire Pulse RX 9070 GRE",IDL("210685082/sapphire-radeon-rx-9070-gre-pulse")],
+          ["PcComponentes",749.00,"ASUS Prime RX 9070 GRE OC",IDL("210684260/asus-radeon-rx-9070-gre-prime-oc")]]},
         {cat:"SSD", modele:"Biwin Black Opal NV7400 1 To (PCIe 4.0)", q:"Biwin NV7400 1To", offres:[
-          ["Amazon",149.99,"Biwin Black Opal NV7400 1 To",AMZ("B0DM1R7KHZ")],
-          ["Amazon",164.99,"Crucial P310 1 To",AMZ("B0DC8VPSHV")]]},
+          ["Amazon",149.99,"Vendeur tiers sur Amazon",IDL("207280335/biwin-black-opal-nv7400")],
+          ["Amazon",164.99,"Crucial P310 1 To (relevé d'hier)",AMZ("B0DC8VPSHV")]]},
         {cat:"Alimentation", modele:"Cooler Master MWE Gold 650 V3", q:"Cooler Master MWE Gold 650 V3", offres:[
-          ["Cdiscount",64.99,"Cooler Master MWE Gold 650 V3, livré par Cdiscount",CDS("Cooler Master MWE Gold 650 V3")],
-          ["Amazon",69.99,"MSI MAG A650GLS (modulaire)",AMZ("B0BX6MTYSC")]]},
+          ["Fnac",64.99,"Vendu par Fnac, livraison incluse",IDL("208360167/cooler-master-mwe-gold-v3-atx-3-1-650w")],
+          ["Darty",64.99,"Même prix, livraison d'ici le 02/12",IDL("208360167/cooler-master-mwe-gold-v3-atx-3-1-650w")],
+          ["Cdiscount",69.98,"64,99 € + 4,99 € de port",CDS("Cooler Master MWE Gold 650 V3")]]},
         {cat:"Boîtier", modele:"MSI MAG Forge 321R Airflow", q:"MSI MAG Forge 321R Airflow", offres:[
           ["Amazon",69.99,"MSI MAG Forge 321R Airflow",AMZ("B0CXQ664BW")],
-          ["Cdiscount",64.99,"Zalman P30 Air (mATX)",CDS("Zalman P30 Air")]]}
+          ["Fnac",96.54,"Vendeur Fnac Marketplace",IDL("205301205/msi-mag-forge-321r-airflow")]]}
       ]},
     { id:"eleve", tier:"Budget élevé", couleur:"--t3", nom:"Le costaud 1440p+", usage:"1440p très élevé et entrée en 4K, le meilleur CPU gaming au meilleur prix", chips:["AM5","DDR5","1440p / 4K"],
-      astuce:"Le 7800X3D est 3,50 € moins cher sur AliExpress, mais on le prend chez Amazon pour le SAV. La RX 9070 XT ne coûte que 33 € de plus que la RX 9070 classique.",
+      astuce:"Le 7800X3D tombe à 221,74 € sur AliExpress, 62 € de moins qu'Amazon. Si tu préfères le SAV Amazon, compte 283,99 €. Le boîtier be quiet! Pure Base 501 Airflow passe à 49,99 € chez Darty.",
       parts:[
         {cat:"Processeur", modele:"AMD Ryzen 7 7800X3D", q:"Ryzen 7 7800X3D", offres:[
-          ["Amazon",283.99,"Ryzen 7 7800X3D, avec le SAV Amazon",AMZ("B0BTZB7F88")],
-          ["AliExpress",280.49,"7800X3D, livraison gratuite, sans frais d'import",ALI("ryzen 7 7800x3d")],
-          ["Amazon",359.00,"Ryzen 7 9800X3D (+15 % en jeu environ)",AMZ("B0DKFMSMYK")]]},
+          ["AliExpress",221.74,"7800X3D, livraison incluse, d'ici le 28/11",ALI("ryzen 7 7800x3d")],
+          ["Cdiscount",263.99,"Vendeur marketplace, livraison d'ici le 02/12",CDS("Ryzen 7 7800X3D")],
+          ["Amazon",283.99,"Ryzen 7 7800X3D, vendu par Amazon",AMZ("B0BTZB7F88")]]},
         {cat:"Ventirad", modele:"Thermalright Peerless Assassin 120 SE ARGB", q:"Thermalright Peerless Assassin 120 SE", offres:[
-          ["Amazon",30.32,"Thermalright PA120 SE ARGB",AMZ("B0G3K5WF8B")],
-          ["Amazon",37.05,"Thermalright PA120 SE ARGB (autre vendeur)",AMZ("B0D9YF3D4Y")]]},
+          ["Amazon",42.15,"Vendeur tiers, 32,15 € + 10 € de port",IDL("202763090/thermalright-peerless-assassin-120-se-argb")],
+          ["Galaxus",53.90,"Thermalright PA120 SE ARGB",IDL("202763090/thermalright-peerless-assassin-120-se-argb")],
+          ["Cdiscount",54.02,"Vendeur marketplace",CDS("Thermalright Peerless Assassin 120 SE")]]},
         {cat:"Carte mère", modele:"Gigabyte B650 Eagle (ATX)", q:"Gigabyte B650 Eagle", offres:[
-          ["Amazon",109.99,"Gigabyte B650 Eagle",AMZ("B0DBM78F2D")],
-          ["Cdiscount",116.83,"Gigabyte B650M Gaming Plus WiFi",CDS("Gigabyte B650M Gaming Plus WIFI")]]},
-        {cat:"Mémoire", modele:"Corsair Vengeance RGB 32 Go (2×16) DDR5 6000 CL30", q:"Corsair Vengeance RGB 32Go DDR5 6000 CL30", offres:[
-          ["Cybertek",499.99,"Corsair Vengeance RGB 32 Go 6000 CL30 (via comparateur)","https://www.cybertek.fr/"],
-          ["Amazon",504.99,"Patriot Viper Venom 32 Go 6000 CL36",AMZ("B09XY6KX8P")],
-          ["Cdiscount",570.05,"Patriot Viper Venom 32 Go 6000",CDS("Patriot Viper Venom 32Go DDR5 6000")]]},
+          ["PcComponentes",104.12,"Gigabyte B650 Eagle",IDL("204405349/gigabyte-b650-eagle")],
+          ["Amazon",109.99,"Gigabyte B650 Eagle, vendu par Amazon",AMZ("B0DBM78F2D")],
+          ["Fnac",109.99,"Vendu par Fnac",IDL("204405349/gigabyte-b650-eagle")]]},
+        {cat:"Mémoire", modele:"Patriot Viper Venom 32 Go (2×16) DDR5 6000 CL30", q:"Patriot Viper Venom 32Go DDR5 6000 CL30", offres:[
+          ["Alternate",528.90,"519 € + 9,90 € de port",IDL("204432987/patriot-viper-venom-32-go-kit-ddr5-6000-cl30-pvv532g600c30k")],
+          ["Amazon",529.99,"Vendeur tiers (Patriot Memory France)",IDL("204432987/patriot-viper-venom-32-go-kit-ddr5-6000-cl30-pvv532g600c30k")],
+          ["PcComponentes",569.00,"Même kit",IDL("204432987/patriot-viper-venom-32-go-kit-ddr5-6000-cl30-pvv532g600c30k")]]},
         {cat:"Carte graphique", modele:"ASUS Prime RX 9070 XT OC 16 Go", q:"RX 9070 XT", offres:[
-          ["Amazon",932.41,"ASUS Prime RX 9070 XT OC 16 Go",AMZ("B0DSG52H7D")],
-          ["Amazon",990.00,"XFX Swift RX 9070 XT 16 Go",AMZ("B0DW4FRCQR")],
-          ["Cdiscount",1039.99,"Gigabyte RX 9070 XT Gaming OC",CDS("Gigabyte RX 9070 XT Gaming OC")]]},
+          ["Amazon",932.41,"ASUS Prime RX 9070 XT OC 16 Go, vendu par Amazon",AMZ("B0DSG52H7D")],
+          ["PcComponentes",932.41,"Même carte",IDL("206039690/asus-radeon-rx-9070-xt-prime-oc")],
+          ["Amazon",938.99,"XFX Mercury RX 9070 XT, vendeur tiers",IDL("206022058/xfx-radeon-rx-9070-xt")],
+          ["Infomax Paris",860.00,"ASRock RX 9070 (modèle inférieur)",IDL("206012229/asrock-radeon-rx-9070")]]},
         {cat:"SSD", modele:"Crucial P310 2 To", q:"Crucial P310 2To", offres:[
-          ["1fodiscount",249.91,"Crucial P310 2 To (via comparateur)","https://www.1fodiscount.com/"],
-          ["Amazon",269.99,"Fikwot FX660 2 To",AMZ("B0CXXWB52R")]]},
+          ["Compumsa",298.00,"289,90 € + 8,10 € de port",IDL("204799578/crucial-p310-2-to-2280")],
+          ["Cdiscount",314.98,"309,99 € + 4,99 € de port",CDS("Crucial P310 2To")],
+          ["Pixmania",321.66,"Crucial P310 2 To",IDL("204799578/crucial-p310-2-to-2280")]]},
         {cat:"Alimentation", modele:"Corsair RM850e (modulaire, 80+ Gold)", q:"Corsair RM850e", offres:[
-          ["Amazon",82.99,"Corsair RM850e (2025)",AMZ("B0DMTN5WLB")],
-          ["Cdiscount",89.99,"Cooler Master MWE Gold 850 V3",CDS("Cooler Master MWE Gold 850 V3")]]},
-        {cat:"Boîtier", modele:"be quiet! Pure Base 501 Airflow", q:"be quiet Pure Base 501 Airflow", offres:[
-          ["Amazon",79.95,"be quiet! Pure Base 501 Airflow",AMZ("B0DGXR6TTD")]]}
+          ["Amazon",82.99,"Corsair RM850e (2025), vendu par Amazon",AMZ("B0DMTN5WLB")],
+          ["Cdiscount",112.99,"108 € + 4,99 € de port",CDS("Corsair RM850e")],
+          ["Alternate",118.80,"Corsair RM850e (2025)",IDL("205664412/corsair-rm850e-2025-850w")]]},
+        {cat:"Boîtier", modele:"be quiet! Pure Base 501 Airflow (noir)", q:"be quiet Pure Base 501 Airflow", offres:[
+          ["Darty",49.99,"Vendu par Darty, livraison d'ici le 02/12",IDL("205066870/be-quiet-pure-base-501-airflow-black")],
+          ["1fodiscount",64.95,"Même boîtier",IDL("205066870/be-quiet-pure-base-501-airflow-black")],
+          ["Cdiscount",64.98,"59,99 € + 4,99 € de port",CDS("be quiet Pure Base 501 Airflow")],
+          ["Amazon",79.95,"Prix relevé hier",AMZ("B0DGXR6TTD")]]}
       ]}
   ],
+  /* Config personnelle d'Elyes : références imposées, on cherche le meilleur prix pour chacune. */
+  elyes: { id:"elyes", tier:"Ma config", couleur:"--accent", nom:"Config d'Elyes", usage:"Ryzen 7 5700X, RTX 5060 Ti 8 Go, 32 Go de DDR4 et SSD 1 To sur AM4", chips:["AM4","DDR4 32 Go","1080p","750 W"],
+    astuce:"Changement depuis 13h : la RTX 5060 Ti 8 Go remplace la RX 9060 XT. À 551,90 € port inclus, elle fait 100 FPS en 1080p Ultra (Tom's Hardware), 8 % de plus que la RX 9060 XT (539,98 € port inclus) et 58 % de plus que l'Arc B570, pour seulement 5,50 € par FPS, à 8 % du meilleur ratio. Ses 8 Go de mémoire vidéo limitent déjà quelques jeux récents en Ultra. Autre baisse : la Corsair CX750 (750 W) passe à 47,99 € vendue par Amazon, 14 € de moins que la Gigabyte P750BS retenue à 13h. La Gigabyte P750GM reste écartée pour ses pannes signalées.",
+    parts:[
+      {cat:"Processeur", modele:"AMD Ryzen 7 5700X (sans ventirad)", q:"Ryzen 7 5700X", offres:[
+        ["Idealo",126.10,"Meilleure offre sur 31 marchands","https://www.idealo.fr/prechcat.html?q=ryzen%207%205700x"],
+        ["Cdiscount",147.99,"Ryzen 7 5700X, livraison gratuite",CDS("Ryzen 7 5700X")],
+        ["Cdiscount",161.49,"Autre vendeur",CDS("Ryzen 7 5700X")]]},
+      {cat:"Carte mère", modele:"Gigabyte B550M K", q:"Gigabyte B550M K", offres:[
+        ["Amazon",70.99,"Gigabyte B550M K, vendu par Amazon",IDL("202374302/gigabyte-b550m-k")],
+        ["Idealo",75.08,"MSI Pro B550M-B (autre modèle)","https://www.idealo.fr/prechcat.html?q=msi%20pro%20b550m-b"],
+        ["Cdiscount",75.98,"70,99 € + 4,99 € de port",CDS("Gigabyte B550M K")]]},
+      {cat:"Mémoire", modele:"G.Skill Aegis 32 Go (2×16) DDR4 3200 CL16", q:"G.Skill Aegis 32Go DDR4 3200 F4-3200C16D-32GIS", offres:[
+        ["Idealo",224.90,"G.Skill Aegis 32 Go (2×16) CL16, meilleure offre","https://www.idealo.fr/prechcat.html?q=F4-3200C16D-32GIS"],
+        ["Idealo",239.99,"Corsair Vengeance LPX 32 Go (2×16) CL16","https://www.idealo.fr/prechcat.html?q=CMK32GX4M2E3200C16"],
+        ["Cdiscount",246.99,"Silicon Power 32 Go (2×16) CL22, plus lente",CDS("Silicon Power 32Go DDR4 3200")]]},
+      {cat:"Ventirad", modele:"Thermalright Assassin X 120 Refined SE ARGB", q:"Thermalright Assassin X 120 SE", offres:[
+        ["Idealo",18.10,"Version ARGB, meilleure offre","https://www.idealo.fr/prechcat.html?q=thermalright%20assassin%20x%20120%20refined%20se%20argb"],
+        ["Amazon",20.59,"Version noire sans éclairage, vendeur tiers",IDL("202763151/thermalright-assassin-x-120-refined-se-black")]]},
+      {cat:"Carte graphique", modele:"Inno3D RTX 5060 Ti Twin X2 OC 8 Go", q:"Inno3D RTX 5060 Ti Twin X2 OC 8GB", offres:[
+        ["Alternate",551.90,"542 € + 9,90 € de port, marchand noté 4,9/5 : 100,4 FPS en 1080p Ultra, 5,50 € par FPS",IDL("206267222/inno3d-geforce-rtx-5060-ti-twin-x2-oc-8gb")],
+        ["Fnac",324.00,"ASRock Arc B570 (la moins chère éligible) : 63,5 FPS, 5,10 € par FPS",IDL("205505501/asrock-arc-b570-challenger-oc")],
+        ["Cdiscount",539.98,"Sapphire Pulse RX 9060 XT 8 Go, port inclus : 93,2 FPS, 5,79 € par FPS",IDL("207966886/sapphire-radeon-rx-9060-xt-pulse-8g-lite-retail")],
+        ["Idealo",877.00,"Inno3D RTX 5060 Ti 16 Go (carte au-dessus) : 105,2 FPS, 8,34 € par FPS","https://www.idealo.fr/prechcat.html?q=inno3d%20rtx%205060%20ti%20twin%20x2%2016gb"],
+        ["Joybuy",449.00,"Inno3D RTX 5060 Ti 8 Go via moteur de recherche : modèle exact et date non confirmés, à vérifier","https://www.google.com/search?q="+encodeURIComponent("site:joybuy.fr Inno3D RTX 5060 Ti 8GB")]]},
+      {cat:"SSD", modele:"PNY CS1030 1 To NVMe", q:"PNY CS1030 1To", offres:[
+        ["Amazon",129.99,"PNY CS1030 1 To NVMe Gen3",AMZ("B08M49JGKB")],
+        ["Cdiscount",136.51,"KingSpec NE 1 To NVMe Gen3",CDS("KingSpec NE 1To NVMe")],
+        ["Idealo",129.00,"Team MP33 1 To NVMe Gen3 (99 centimes de moins, SAV Amazon préféré)","https://www.idealo.fr/prechcat.html?q=team%20mp33%201to"],
+        ["Cdiscount",149.99,"Crucial E100 1 To NVMe Gen4",CDS("Crucial E100 1To")]]},
+      {cat:"Alimentation", modele:"Corsair CX750 (2023), 750 W, 80+ Bronze", q:"Corsair CX750 2023", offres:[
+        ["Amazon",47.99,"Vendue par Amazon, livraison incluse, d'ici le 26/11",IDL("203557576/corsair-cx750-2023-750w")],
+        ["Cdiscount",61.99,"Gigabyte GP-P750BS, vendue et livrée par Cdiscount","https://www.cdiscount.com/informatique/alimentation-pc/gigabyte-gp-p750bs-80-bronze-alimentation-7/f-10775-gig1739844101601.html"],
+        ["PcComponentes",64.99,"Corsair CX750, livraison incluse",IDL("203557576/corsair-cx750-2023-750w")],
+        ["Idealo",73.99,"Corsair RM750e (2025), 80+ Gold modulaire",IDL("205662476/corsair-rm750e-2025-750w")]]},
+      {cat:"Boîtier", modele:"Sharkoon AK5G RGB blanc (ATX, 4 ventilateurs 120 mm)", q:"Sharkoon AK5G RGB", offres:[
+        ["Idealo",44.89,"34,99 € + 9,90 € de port, marchand noté 4,9/5",IDL("205277027/sharkoon-ak5g-rgb")],
+        ["Cdiscount",45.63,"Mars Gaming MC-Nebula (ATX, 4 ventilateurs ARGB)","https://www.cdiscount.com/informatique/boitiers-pc-alimentations/mars-gaming-mc-nebula-/f-10766-aabxz28590.html"],
+        ["Idealo",79.99,"Sharkoon AK5G RGB en noir",IDL("205277027/sharkoon-ak5g-rgb")]]}
+    ]},
   /* Meilleures affaires du jour, indépendantes des setups, par sous-section.
      statut : "bon" = vrai bon plan vérifié, "moyen" = prix dans la moyenne habituelle, "nv" = historique non vérifiable.
      comp = prix de comparaison [libellé, prix]. */
   affaires: [
     {titre:"Composants PC", items:[
-      {titre:"AMD Ryzen 5 9600X", prix:149.00, site:"Amazon", lien:AMZ("B0D6NN6TM7"), statut:"bon",
-       pourquoi:"Un CPU Zen 5 récent pour à peine plus cher qu'un ancien Ryzen 5 7500F.",
-       comp:[["Cdiscount",181.91],["Ryzen 5 7600X chez Amazon",173.00]]},
-      {titre:"ASUS Prime RX 9070 XT OC 16 Go", prix:932.41, site:"Amazon", lien:AMZ("B0DSG52H7D"), statut:"bon",
-       pourquoi:"Seulement 33 € de plus que la RX 9070 classique, pour la version XT nettement plus rapide.",
-       comp:[["RX 9070 Challenger chez Amazon",899.00],["RX 9070 XT chez Cdiscount",1039.99]]},
-      {titre:"AMD Ryzen 7 7800X3D", prix:280.49, site:"AliExpress", lien:ALI("ryzen 7 7800x3d"), statut:"bon",
-       pourquoi:"Livraison gratuite et sans frais d'import, 59 € sous son prix d'il y a 30 jours sur AliExpress.",
-       comp:[["Amazon",283.99],["1fodiscount",338.57]]},
-      {titre:"AMD Ryzen 5 5600X", prix:118.99, site:"Cdiscount", lien:CDS("Ryzen 5 5600X"), statut:"bon",
-       pourquoi:"Moins cher aujourd'hui que le Ryzen 5 5600, qui est pourtant le modèle inférieur.",
-       comp:[["Ryzen 5 5600 chez Cdiscount",121.72],["Amazon (tray)",143.51]]}
+      {titre:"Corsair CX750 (2023), 750 W, 80+ Bronze", prix:47.99, site:"Amazon", lien:IDL("203557576/corsair-cx750-2023-750w"), statut:"bon",
+       pourquoi:"24 % sous la moyenne des prix les plus bas des 90 derniers jours (Idealo) et 26 % sous le deuxième meilleur site. Vendue par Amazon, livraison incluse.",
+       comp:[["PcComponentes",64.99],["Gigabyte P750BS chez Cdiscount",61.99]]},
+      {titre:"AMD Ryzen 7 7800X3D", prix:221.74, site:"AliExpress", lien:ALI("ryzen 7 7800x3d"), statut:"bon",
+       pourquoi:"22 % moins cher qu'Amazon et 59 € de moins qu'hier sur AliExpress. Livraison incluse d'ici le 28/11 : vérifie la note du vendeur avant de commander.",
+       comp:[["Amazon",283.99],["AliExpress hier",280.49]]},
+      {titre:"be quiet! Pure Base 501 Airflow (noir)", prix:49.99, site:"Darty", lien:IDL("205066870/be-quiet-pure-base-501-airflow-black"), statut:"bon",
+       pourquoi:"23 % sous le deuxième meilleur site, vendu par Darty. Il était à 79,95 € chez Amazon hier.",
+       comp:[["1fodiscount",64.95],["Cdiscount (port inclus)",64.98]]},
+      {titre:"Corsair RM850e (850 W, modulaire, 80+ Gold)", prix:82.99, site:"Amazon", lien:AMZ("B0DMTN5WLB"), statut:"bon",
+       pourquoi:"27 % moins cher que chez Cdiscount, vendue par Amazon.",
+       comp:[["Cdiscount (port inclus)",112.99],["Alternate (port inclus)",118.80]]},
+      {titre:"Corsair CX650 (650 W)", prix:44.90, site:"Amazon", lien:AMZ("B0CK8NDN1Q"), statut:"bon",
+       pourquoi:"23 % sous le deuxième meilleur site, vendue par Amazon.",
+       comp:[["PcComponentes",58.00],["Vendeur tiers sur Amazon",62.75]]},
+      {titre:"MSI MAG Forge 321R Airflow", prix:69.99, site:"Amazon", lien:AMZ("B0CXQ664BW"), statut:"bon",
+       pourquoi:"27 % sous le deuxième meilleur site, vendu par Amazon.",
+       comp:[["Fnac Marketplace",96.54],["Darty Marketplace",99.24]]}
     ]},
     {titre:"Bureaux assis-debout", items:[
       {titre:"SONGMICS bureau électrique 160 × 70 cm (plateau inclus)", prix:113.99, site:"Amazon", lien:AMZ("B0CV4V22XL"), statut:"bon",
-       pourquoi:"Égale son prix le plus bas sur Amazon, 13 % sous son prix moyen. Plus de 5 600 avis.",
-       comp:[["Prix moyen sur Amazon",130.82],["Prix le plus haut relevé",149.99]]},
-      {titre:"FlexiSpot E1 Pro, piètement 2 moteurs (sans plateau)", prix:139.99, site:"Amazon", lien:AMZ("B01N31553J"), statut:"bon",
-       pourquoi:"Plus bas prix jamais relevé pour ce piètement. Attention : le plateau (120 à 180 cm) est à acheter à part.",
-       comp:[["Prix moyen sur Amazon",219.12],["Précédent prix le plus bas",142.48]]}
+       pourquoi:"Prix inchangé depuis hier, toujours 13 % sous son prix moyen relevé.",
+       comp:[["Prix moyen relevé hier",130.82],["Autre offre sur Amazon",149.99]]}
     ]},
     {titre:"Souris", items:[
-      {titre:"Logitech G Pro X Superlight 2 (gaming, sans fil)", prix:89.99, site:"Amazon", lien:AMZ("B07W4DGPGF"), statut:"bon",
-       pourquoi:"12 % sous son prix moyen, à 5 € de son prix le plus bas jamais vu.",
-       comp:[["Prix moyen sur Amazon",102.67],["Prix le plus bas historique",84.99]]},
-      {titre:"Logitech MX Master 3S (bureautique, sans fil)", prix:75.99, site:"Amazon", lien:AMZ("B0FHHV6YR5"), statut:"bon",
-       pourquoi:"20 % sous son prix moyen, quasiment son prix le plus bas.",
-       comp:[["Prix moyen sur Amazon",94.83],["Prix le plus bas historique",75.15]]}
+      {titre:"Logitech G Pro X Superlight 2 (gaming, sans fil)", prix:85.49, site:"Amazon", lien:AMZ("B07W4DGPGF"), statut:"bon",
+       pourquoi:"4,50 € de moins qu'hier, 17 % sous son prix moyen relevé, à 50 centimes de son prix le plus bas.",
+       comp:[["Prix moyen relevé hier",102.67],["Boulanger",89.99]]},
+      {titre:"Logitech MX Master 3S (bureautique, sans fil)", prix:73.99, site:"Boulanger", lien:IDL("201968115/logitech-mx-master-3s-graphite"), statut:"bon",
+       pourquoi:"22 % sous son prix moyen relevé, et 2 € de moins qu'Amazon.",
+       comp:[["Prix moyen relevé hier",94.83],["Amazon",75.99]]}
     ]},
     {titre:"Écrans", items:[
       {titre:"Samsung Odyssey G5 G50F, 27\" QHD 180 Hz", prix:148.90, site:"Amazon", lien:AMZ("B0FX39Q2TN"), statut:"bon",
-       pourquoi:"Nouveau prix le plus bas, 15 % sous son prix moyen. Le bon écran pour une config 1440p.",
-       comp:[["Prix moyen sur Amazon",174.24],["Précédent prix le plus bas",163.05]]},
+       pourquoi:"Toujours à son prix le plus bas, 15 % sous son prix moyen relevé. Le bon écran pour une config 1440p.",
+       comp:[["Prix moyen relevé hier",174.24],["Alternate (port inclus)",158.80]]},
       {titre:"LG UltraGear 34G600A, 34\" ultra-large 3440 × 1440, 160 Hz", prix:209.99, site:"Amazon", lien:AMZ("B0FG8LKDT7"), statut:"bon",
-       pourquoi:"Nouveau prix le plus bas, 19 % sous son prix moyen.",
-       comp:[["Prix moyen sur Amazon",259.01],["Précédent prix le plus bas",213.99]]},
-      {titre:"MSI PRO MP273U, 27\" 4K (bureautique)", prix:169.08, site:"Amazon", lien:AMZ("B0DJ9KZG6P"), statut:"moyen",
-       pourquoi:"Prix dans la moyenne : seulement 6 % sous Cdiscount. Un bon écran 4K pour travailler, mais pas une affaire exceptionnelle.",
-       comp:[["Cdiscount",179.45],["Prix conseillé",199.99]]}
+       pourquoi:"Toujours à son prix le plus bas, 19 % sous son prix moyen relevé.",
+       comp:[["Prix moyen relevé hier",259.01],["PcComponentes",253.99]]}
     ]},
     {titre:"Claviers", items:[
-      {titre:"Keychron K10 Pro, mécanique AZERTY sans fil", prix:89.99, site:"Amazon", lien:AMZ("B0G1RZRWN3"), statut:"bon",
-       pourquoi:"Moitié prix par rapport à Cdiscount, vendu par Keychron France.",
-       comp:[["Cdiscount",175.75],["Ancien prix sur Amazon",129.99]]},
-      {titre:"Logitech G515 TKL Lightspeed, mécanique sans fil", prix:74.99, site:"Amazon", lien:AMZ("B0D3HKCTL9"), statut:"bon",
-       pourquoi:"17 % moins cher que chez Cdiscount, vendu par Amazon.",
-       comp:[["Cdiscount",89.99],["Prix conseillé",129.99]]},
-      {titre:"Logitech MX Keys S, classique sans fil", prix:79.99, site:"Amazon", lien:AMZ("B07W6JFM87"), statut:"moyen",
-       pourquoi:"Prix dans la moyenne : même prix chez Cdiscount, pas de baisse particulière aujourd'hui.",
-       comp:[["Cdiscount",79.99],["Prix conseillé",119.99]]}
+      {titre:"Logitech MX Keys S, classique sans fil", prix:69.99, site:"Amazon", lien:AMZ("B07W6JFM87"), statut:"bon",
+       pourquoi:"10 € de moins qu'hier (−12,5 %), même prix chez Boulanger.",
+       comp:[["Prix relevé hier",79.99],["Boulanger",69.99]]}
     ]},
     {titre:"Chaises ergonomiques", items:[
       {titre:"SIHOO B100 SE", prix:139.99, site:"Cdiscount", lien:"https://www.cdiscount.com/maison/fauteuil-pouf-poire/sihoo-b100-se-chaise-de-bureau-ergonomique-soutie/f-117200101-aacte65429.html", statut:"bon",
-       pourquoi:"26 % sous son prix le plus bas des 30 derniers jours. Même prix chez Amazon.",
-       comp:[["Prix le plus bas sur 30 jours",189.99],["Amazon",139.99]]},
-      {titre:"SIHOO M109", prix:89.99, site:"Cdiscount", lien:"https://www.cdiscount.com/maison/fauteuil-pouf-poire/sihoo-m109-fauteuil-de-bureau/f-117200101-aadik22368.html", statut:"moyen",
-       pourquoi:"Petite baisse de 10 % : prix proche de l'habituel, mais c'est l'une des chaises ergonomiques les moins chères.",
-       comp:[["Prix le plus bas sur 30 jours",99.99]]}
+       pourquoi:"26 % sous son prix le plus bas des 30 derniers jours chez Cdiscount.",
+       comp:[["Prix le plus bas sur 30 jours",189.99]]}
     ]},
     {titre:"Accessoires", items:[
-      {titre:"Belkin BoostCharge, station de charge 3-en-1 Qi2 (iPhone, montre, écouteurs)", prix:48.99, site:"Amazon", lien:AMZ("B0DPJ6YV98"), statut:"bon",
-       pourquoi:"Moitié prix par rapport à Cdiscount, vendue par Amazon.",
-       comp:[["Cdiscount",95.81],["Prix conseillé",129.99]]},
-      {titre:"Logitech G840 XL, tapis de souris 90 × 40 cm", prix:21.99, site:"Amazon", lien:AMZ("B07W6JPVPF"), statut:"nv",
-       pourquoi:"Prix bas pour ce grand tapis Logitech, mais je n'ai pas pu vérifier son historique.",
-       comp:[["Prix conseillé",39.99]]}
+      {titre:"Logitech G840 XL, tapis de souris 90 × 40 cm", prix:21.99, site:"Amazon", lien:AMZ("B07W6JPVPF"), statut:"moyen",
+       pourquoi:"Prix habituel : même prix de base chez Cdiscount, mais livraison offerte chez Amazon.",
+       comp:[["Cdiscount (port inclus)",26.98],["Galaxus (port inclus)",35.88]]}
     ]}
   ]
 };
@@ -280,7 +317,8 @@ const SEARCH = [
   ["AliExpress", ALI],
   ["PcComponentes", q=>"https://www.pccomponentes.fr/search/?query="+encodeURIComponent(q)],
   ["Tous les prix (Idealo)", q=>"https://www.idealo.fr/prechcat.html?q="+encodeURIComponent(q)],
-  ["Bons plans (Dealabs)", q=>"https://www.dealabs.com/search?q="+encodeURIComponent(q)]
+  ["Bons plans (Dealabs)", q=>"https://www.dealabs.com/search?q="+encodeURIComponent(q)],
+  ["Joybuy", q=>"https://www.google.com/search?q="+encodeURIComponent("site:joybuy.fr "+q)]
 ];
 const eur = n => n.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
 const best = p => p.offres[0];
@@ -305,6 +343,13 @@ function home(){
         <span class="meta">${esc(s.usage)}</span>
         <span class="chips">${s.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join("")}</span>
       </a>`).join("")}
+    <a class="setup" href="#elyes" style="--tier:var(--accent)">
+      <span class="tier">${esc(DATA.elyes.tier)}</span>
+      <span class="name">${esc(DATA.elyes.nom)}</span>
+      <span class="total">${eur(total(DATA.elyes))}</span>
+      <span class="meta">${esc(DATA.elyes.usage)}</span>
+      <span class="chips">${DATA.elyes.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join("")}</span>
+    </a>
     <a class="setup" href="#affaires" style="--tier:var(--warn)">
       <span class="tier">Bons plans</span>
       <span class="name">Meilleures affaires du jour</span>
@@ -393,7 +438,7 @@ function deals(){
 }
 
 function route(){
-  const s = DATA.setups.find(x=>"#"+x.id===location.hash);
+  const s = [...DATA.setups, DATA.elyes].find(x=>"#"+x.id===location.hash);
   location.hash==="#affaires" ? deals() : s ? setup(s) : home();
   window.scrollTo(0,0);
 }
@@ -401,5 +446,4 @@ addEventListener("hashchange", route);
 route();
 </script>
 
-</body>
-</html>
+</body></html>
